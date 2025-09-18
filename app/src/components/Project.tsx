@@ -4,7 +4,7 @@ import ProjectCards from "./ProjectCards";
 function Project() {
     return (
         <div className="w-5/6 mx-auto">
-            <div className="text-4xl text-center font-semibold mx-auto w-full">
+            <div className="text-5xl text-center font-bold mx-auto w-full">
                 <div className="relative inline-block mx-20 mb-10">
                     {/* Rectangle Behind */}
                     <div

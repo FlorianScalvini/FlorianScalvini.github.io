@@ -1,7 +1,7 @@
 import React from 'react'
 import SkillsCards from "./SkillsCards";
 
-function Skills() {
+function Portfolio() {
     return (
         <div className={"relative"}>
             <img className={"absolute -top-72 -right-52 scale-[0.3] z-[-1] rotate-45"} src={"./gears.png"}/>
@@ -44,4 +44,4 @@ function Skills() {
     );
 }
 
-export default Skills;
+export default Portfolio;

@@ -6,13 +6,13 @@ import ProjectCards from "./ProjectCards";
 function Hero() {
     const excess=10;
     return (
-        <div className={"w-5/6 mx-auto h-[calc(100vh-8rem)] text-5xl font-bold"}>
+        <div className={"w-5/6 mx-auto h-[calc(100vh-8rem)] text-7xl font-bold"}>
             <div className="flex flex-wrap items-center justify-between">
-                <div className="w-1/2 h-[calc(100vh-8rem)] flex flex-col justify-center items-center">
-                    <div className="relative w-32 h-32 self-start">
-                        <div className="bg-lime-300  h-20 w-24 shadow-lg"
+                <div className="w-1/2 h-[calc(100vh-20rem)] flex flex-col justify-center items-center">
+                    <div className="relative w-80 h-32 self-start">
+                        <div className="absolute bg-lime-300  h-40 w-40 shadow-lg z-[-1]"
                              style={{rotate: "-40deg", backgroundColor: "#F1FF58"}}/>
-                        <img className="absolute top-2 left-12 h-32" src="./terminal.svg" alt="Terminal"/>
+                        <img className="absolute -top-20 left-12 h-56" src="./terminal.svg" alt="Terminal"/>
                     </div>
                     <div className={"flex flex-col gap-3 self-start"}>
                         <div className="flex flex-row">
@@ -42,7 +42,7 @@ function Hero() {
                            className={"flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-amber-300"}>
                             <img className={"w-8 h-8 p-1"} src={"./googlescholar.svg"} alt={"Google Scholar"}/>
                         </a>
-                        <a href={"hhttps://orcid.org/0009-0007-5257-1277"}
+                        <a href={"https://orcid.org/0009-0007-5257-1277"}
                            className={"flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-teal-300"}>
                             <img className={"w-8 h-8 p-1"} src={"./orcid.svg"} alt={"Orcid"}/>
                         </a>
@@ -52,7 +52,7 @@ function Hero() {
                         </a>
                     </div>
                 </div>
-                <div className="relative flex flex-col justify-center items-center" style={{height: 500, width: 500}}>
+                <div className="relative flex flex-col justify-center items-center scale-[1.3]" style={{height: 500, width: 500}}>
                     <img className="h-20 " src="./its_me.svg"/>
                     {/* Card wrapper */}
                     <div className="relative h-96 w-[400px] flex justify-center items-center">

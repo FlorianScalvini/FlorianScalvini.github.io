@@ -1,13 +1,16 @@
 import React from 'react'
+import Label from "./Label";
 
 interface ProjectCardProps {
     title: string;
     description: string;
     img: string;
+    type?: string;
+    github?: string;
     link: string;
 }
 
-function ProjectCards({title, description, img, link}: ProjectCardProps) {
+function ProjectCards({title, description, img, type='', github='', link}: ProjectCardProps) {
     const excess = 5;
     return (
         <div className="relative m-2 mb-4 h-80 bg-white" style={{width: 300}}>
@@ -27,9 +30,9 @@ function ProjectCards({title, description, img, link}: ProjectCardProps) {
                 <img
                     src={img}
                     alt="Logo"
-                    className="w-full h-3/5 border-black  border-4"
+                    className="w-full h-1/2 border-black  border-4"
                 />
-                <div className="w-full self-start mt-4">
+                <div className="w-full self-start mt-2">
 
                     <div className="flex flex-row justify-between items-center h-8">
                         <p className="text-xl font-bold my-auto">{title}</p>
@@ -41,6 +44,13 @@ function ProjectCards({title, description, img, link}: ProjectCardProps) {
                             />
                         </a>
                     </div>
+
+                    {/* Render only if type is not empty */}
+                    {type?.trim() && (
+                        <div className="flex flex-row justify-between items-center h-8">
+                            <Label name={type} />
+                        </div>
+                    )}
                     <p className="font-semibold mt-2" style={{fontSize: 15, lineHeight: 1.25}}>{description}</p>
                 </div>
             </div>

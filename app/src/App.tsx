@@ -6,6 +6,7 @@ import LatestPublication from "./components/LatestPublication";
 import Project from "./components/Project";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Label from "./components/Label";
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
           <Header/>
           <Hero/>
           <Project/>
+          <Label name={"empty"}/>
+          <Label name={"empty"}/>
+          <Label name={"empty"}/>
           <LatestPublication/>
           <Skills/>
+
       </div>
   );
 }
