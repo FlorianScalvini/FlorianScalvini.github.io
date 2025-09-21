@@ -5,7 +5,7 @@ function Skills() {
     return (
         <div className={"relative"}>
             <img className={"absolute -top-72 -right-52 scale-[0.3] z-[-1] rotate-45"} src={"./gears.png"}/>
-            <div className={"relative w-5/6 mx-auto mb-16"}>
+            <div className={"relative w-5/6 mx-auto mb-40"}>
 
                 <div className="relative">
                     <div className="relative inline-block mx-20 mb-10">

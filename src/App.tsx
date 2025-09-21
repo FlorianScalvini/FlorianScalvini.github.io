@@ -1,23 +1,19 @@
 import './App.css';
-import Skills from "./components/Skills";
-import ProjectCards from "./components/ProjectCards";
-import LatestPublication from "./components/LatestPublication";
-import Project from "./components/Project";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Label from "./components/Label";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import PortfolioPage from "./PortfolioPage";
+import TeachingPage from "./TeachingPage";
 
 function App() {
   return (
 
-      <div className={"overflow-auto fixed inset-0 -z-10"} style={{backgroundColor:"#FEFFF0"}}>
-        <Header/>
-        <Hero/>
-        <Project/>
-        <LatestPublication/>
-        <Skills/>
-
-      </div>
+      <Router>
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/teaching" element={<TeachingPage/>} />
+          </Routes>
+      </Router>
   );
 }
 

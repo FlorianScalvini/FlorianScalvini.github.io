@@ -3,55 +3,54 @@ import Label from "./Label";
 
 interface ProjectCardProps {
     title: string;
-    description: string;
     img: string;
     type?: string;
+    date?: string;
     github?: string;
     link: string;
 }
 
-function ProjectCards({title, description, img, type='', github='', link}: ProjectCardProps) {
+function ProjectCards({title, img, type='', github='', date='', link}: ProjectCardProps) {
     const excess = 5;
     return (
-        <div className="relative m-2 mb-4 h-80 bg-white" style={{width: 300}}>
+        <div className="relative m-2 mb-4 bg-white h-auto" style={{ width: 400 }}>
             {/* Top line */}
-            <span className="rounded-3xl absolute top-0 left-[-8px] right-[-8px]  bg-black" style={{height: excess}}/>
-
+            <span className="rounded-3xl absolute top-0 left-[-8px] right-[-8px]  bg-purple-400" style={{ height: excess }} />
             {/* Bottom line */}
-            <span className="rounded-3xl absolute bottom-0 left-[-8px] right-[-8px]  bg-black" style={{height: excess}}/>
-
+            <span className="rounded-3xl absolute bottom-0 left-[-8px] right-[-8px]  bg-emerald-300" style={{ height: excess }} />
             {/* Left line */}
-            <span className="rounded-3xl absolute top-[-8px] bottom-[-8px] left-0 bg-black" style={{width: excess}}/>
-
+            <span className="rounded-3xl absolute top-[-8px] bottom-[-8px] left-0 bg-orange-300" style={{ width: excess }} />
             {/* Right line */}
-            <span className="rounded-3xl absolute top-[-8px] bottom-[-8px] right-0 bg-black" style={{width: excess}} />
+            <span className="rounded-3xl absolute top-[-8px] bottom-[-8px] right-0 bg-yellow-300" style={{ width: excess }} />
 
-            <div className="flex w-10/12 h-full flex-col pt-3 m-auto items-center">
+            <div className="flex w-10/12 flex-col pt-3 m-auto items-center">
                 <img
                     src={img}
                     alt="Logo"
-                    className="w-full h-1/2 border-black  border-4"
+                    className="w-full max-h-72 p-3 rounded-lg bg-white border-4 object-contain border-cyan-100"
                 />
                 <div className="w-full self-start mt-2">
-
                     <div className="flex flex-row justify-between items-center h-8">
-                        <p className="text-xl font-bold my-auto">{title}</p>
-                        <a className="my-auto" href="https://your-link.com" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src={"./link.svg"}
-                                alt="Logo"
-                                className="w-6 h-6 object-contain"
-                            />
-                        </a>
-                    </div>
+                        <Label name={type}/>
+                        <div className="relative flex flex-row justify-between items-center h-8 gap-2">
+                            {/* Link Icon */}
+                            <a className="my-auto" href={link} target="_blank"
+                               rel="noopener noreferrer">
+                                <img src="./link.svg" alt="Link" className="w-6 h-6 object-contain"/>
+                            </a>
 
-                    {/* Render only if type is not empty */}
-                    {type?.trim() && (
-                        <div className="flex flex-row justify-between items-center h-8">
-                            <Label name={type} />
+                            {/* GitHub Icon (only if github is not empty) */}
+                            {github?.trim() && (
+                                <a href="https://github.com/FlorianScalvini" target="_blank" rel="noopener noreferrer">
+                                    <img className="w-6 h-6" src="./github-mark.svg" alt="Github"/>
+                                </a>
+                            )}
                         </div>
-                    )}
-                    <p className="font-semibold mt-2" style={{fontSize: 15, lineHeight: 1.25}}>{description}</p>
+                    </div>
+                    <div className="mt-2 pb-5">
+                        <p className="text-lg font-bold">{title}</p>
+                        <p className="text-lg italic font-semibold text-gray-800">{date}</p>
+                    </div>
                 </div>
             </div>
         </div>

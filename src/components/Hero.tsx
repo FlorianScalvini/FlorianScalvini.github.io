@@ -1,100 +1,137 @@
-import React from 'react'
+import React from 'react';
 import ProjectCards from "./ProjectCards";
 
-
 function Hero() {
-    const excess=10;
+    const excess = 10;
+
     return (
-        <div className={"w-5/6 mx-auto h-[calc(100vh-8rem)] text-7xl font-bold"}>
-            <div className="flex flex-wrap items-center justify-between">
-                <div className="w-1/2 h-[calc(100vh-20rem)] flex flex-col justify-center items-center">
-                    <div className="relative w-80 h-32 self-start">
-                        <div className="absolute bg-lime-300  h-40 w-40 shadow-lg z-[-1]"
-                             style={{rotate: "-40deg", backgroundColor: "#F1FF58"}}/>
-                        <img className="absolute -top-20 left-12 h-56" src="./terminal.svg" alt="Terminal"/>
+        <div className="w-5/6 mx-auto h-auto md:h-[calc(100vh-8rem)] font-bold">
+            {/* Responsive font sizes + layout: stack on mobile, row on md+ */}
+            <div className="text-5xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl flex flex-col-reverse md:flex-row md:items-center gap-8">
+
+                {/* LEFT — text block, centered on mobile */}
+                <div className="order-2   max-lg:h-vm md:order-1 w-full h-[calc(100vh-15rem)] flex flex-col justify-center items-center md:items-start max-md:my-12">
+                    <div className="max-md:hidden relative w-80 h-32 self-start">
+                        <div
+                            className="absolute bg-lime-300 h-40 w-40 shadow-lg z-[-1]"
+                            style={{ rotate: "-40deg", backgroundColor: "#F1FF58" }}
+                        />
+                        <img
+                            className="absolute -top-20 left-12 z-10"
+                            src="./terminal.svg"
+                            alt="Terminal"
+                        />
                     </div>
-                    <div className={"flex flex-col gap-3 self-start"}>
-                        <div className="flex flex-row">
-                            <p className="mr-1.5">Hi ! I'm</p>
+
+                    <div className="flex flex-col gap-3 self-start max-md:m-auto text-center md:text-left">
+                        {/* First line: Hi ! I'm Florian, */}
+                        <div className="flex flex-wrap items-center gap-x-2 justify-center md:justify-start">
+                            <p>Hi ! I'm</p>
                             <div className="relative inline-block">
-                                <p className={""}>Florian</p>
-                                <div
-                                    className="absolute -top-0 -left-0 -right-0 -bottom-0 translate-y-1  bg-teal-300  z-[-1] rounded-md"></div>
+                                <p className="relative z-10 inline-block">Florian,</p>
+                                <div className="absolute right-5 inset-0 bg-teal-300 z-0 rounded-md translate-y-1"></div>
                             </div>
-                            <p>,</p>
                         </div>
-                        <div>researcher in</div>
-                        <div className="flex flex-row ">
+
+                        <p className="relative z-10 inline-block">researcher in</p>
+
+                        {/* Third line: computer vision with per-word highlights */}
+                        <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                             <div className="relative inline-block">
-                                <p className={""}>computer vision</p>
-                                <div
-                                    className="absolute -top-0 -left-0 -right-0 -bottom-0 translate-y-1  bg-purple-300  z-[-1] rounded-md"></div>
+                                <p className="relative z-10 inline-block">computer</p>
+                                <div className="absolute -top-2 -bottom-2 -right-6 -left-3 bg-orange-200 z-0 rounded-md translate-y-2 -rotate-3"></div>
+                            </div>
+
+                            <div className="relative inline-block">
+                                <p className="relative z-10 inline-block">vision</p>
+                                <div className="absolute -top-2 -bottom-2 inset-0 bg-purple-300 z-0 rounded-md translate-y-2 rotate-1"></div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap gap-4 mt-8 self-start">
-                        <a className={"flex items-center justify-center rounded-full border-4 border-black py-2 px-4 text-center font-semibold text-lg bg-lime-300"}
-                           href={""}>
+
+                    <div className="flex flex-wrap gap-4 mt-8 self-start justify-center md:justify-start">
+                        <a
+                            className="flex items-center justify-center rounded-full border-4 border-black py-2 px-4 text-center font-semibold text-lg bg-lime-300"
+                            href="./cv_powerpoint.pdf"
+                            target={"_blank"}
+                        >
                             My portfolio :)
                         </a>
-                        <a href={"https://scholar.google.com/citations?user=JqB_G6YAAAAJ&hl=fr"}
-                           className={"flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-amber-300"}>
-                            <img className={"w-8 h-8 p-1"} src={"./googlescholar.svg"} alt={"Google Scholar"}/>
+                        <a
+                            href="https://scholar.google.com/citations?user=JqB_G6YAAAAJ&hl=fr"
+                            className="flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-amber-300"
+                        >
+                            <img className="w-8 h-8 p-1" src="./googlescholar.svg" alt="Google Scholar" />
                         </a>
-                        <a href={"https://orcid.org/0009-0007-5257-1277"}
-                           className={"flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-teal-300"}>
-                            <img className={"w-8 h-8 p-1"} src={"./orcid.svg"} alt={"Orcid"}/>
+                        <a
+                            href="https://orcid.org/0009-0007-5257-1277"
+                            className="flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-teal-300"
+                        >
+                            <img className="w-8 h-8 p-1" src="./orcid.svg" alt="Orcid" />
                         </a>
-                        <a href={"https://github.com/FlorianScalvini"}
-                           className={"flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-fuchsia-300"}>
-                            <img className={"w-8 h-8 p-1"} src={"./github-mark.svg"} alt={"Github"}/>
+                        <a
+                            href="https://github.com/FlorianScalvini"
+                            className="flex items-center justify-center rounded-full border-4 border-black p-2 font-semibold text-lg bg-fuchsia-300"
+                        >
+                            <img className="w-8 h-8 p-1" src="./github-mark.svg" alt="Github" />
                         </a>
                     </div>
                 </div>
-                <div className="relative flex flex-col justify-center items-center scale-[1.3]" style={{height: 500, width: 500}}>
-                    <img className="h-20 " src="./its_me.svg"/>
-                    {/* Card wrapper */}
-                    <div className="relative h-96 w-[400px] flex justify-center items-center">
-                        {/* Card container with border lines */}
-                        <div className="relative w-full h-full">
-                            {/* Border lines */}
-                            <span className="rounded-3xl absolute top-0 bg-black"
-                                  style={{height: 5, left: -excess, right: -excess}}/>
-                            <span className="rounded-3xl absolute bottom-0 bg-black"
-                                  style={{height: 5, left: -excess, right: -excess}}/>
-                            <span className="rounded-3xl absolute left-0 bg-black"
-                                  style={{width: 5, top: -excess, bottom: -excess}}/>
-                            <span className="rounded-3xl absolute right-0 bg-black"
-                                  style={{width: 5, top: -excess, bottom: -excess}}/>
 
-                            {/* Card content */}
-                            <div className="flex flex-col bg-gray-50 h-full justify-center items-center p-4">
-                                <div className="flex flex-row space-x-20 mt-4 mb-4">
-                                    <div className="w-3 h-3 bg-black rounded-full"/>
-                                    <div className="w-3 h-3 bg-black rounded-full"/>
-                                </div>
-                                <img
-                                    src="./logo.svg"
-                                    alt="Logo"
-                                    className="w-3/4 h-3/4 border-black bg-gray-300 border-4 rounded-[30px]"
+                {/* RIGHT — card block, centered on mobile, never cropped */}
+                <div className="order-1 md:order-2 w-full flex justify-center">
+                    {/* Use vertical padding on mobile to make room for decorations that stick out */}
+                    <div className="relative w-full max-w-[420px] flex flex-col items-center pt-2 pb-24 md:pb-8">
+                        <img className="h-16 md:h-20 mb-4 object-contain" src="./its_me.svg" alt="It's me" />
+
+                        {/* Card wrapper: auto height on mobile; no clipping */}
+                        <div className="relative w-full">
+                            {/* Border lines (extend slightly past edges) */}
+                            <div className="relative w-full">
+                <span
+                    className="rounded-3xl absolute top-0 bg-black"
+                    style={{ height: 5, left: -excess, right: -excess }}
+                />
+                                <span
+                                    className="rounded-3xl absolute bottom-0 bg-black"
+                                    style={{ height: 5, left: -excess, right: -excess }}
                                 />
+                                <span
+                                    className="rounded-3xl absolute left-0 bg-black"
+                                    style={{ width: 5, top: -excess, bottom: -excess }}
+                                />
+                                <span
+                                    className="rounded-3xl absolute right-0 bg-black"
+                                    style={{ width: 5, top: -excess, bottom: -excess }}
+                                />
+
+                                {/* Card content box */}
+                                <div className="flex flex-col bg-gray-50 justify-center items-center p-4 min-h-[20rem] md:min-h-[24rem]">
+                                    <div className="flex flex-row space-x-20 mt-2 mb-4">
+                                        <div className="w-3 h-3 bg-black rounded-full" />
+                                        <div className="w-3 h-3 bg-black rounded-full" />
+                                    </div>
+                                    {/* Prevent cropping: object-contain + max-h */}
+                                    <img
+                                        src="./logo.svg"
+                                        alt="Logo"
+                                        className="w-full max-w-[320px] h-auto max-h-72 object-contain border-black bg-gray-300 border-4 rounded-[30px]"
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Decorations */}
-                        <div
-                            className="h-20 w-20 rounded-full -top-8 -left-8 absolute bg-amber-400 flex items-center border-4 shadow-lg">
-                            <img className="h-14 w-14 m-auto rotate-6" src="./mlp.svg"/>
-                        </div>
+                            {/* Decorations (not clipped). Extra bottom padding above keeps them off the next section on mobile */}
+                            <div className="h-20 w-20 rounded-full -top-8 -left-8 absolute bg-amber-400 flex items-center border-4 shadow-lg">
+                                <img className="h-14 w-14 m-auto rotate-6" src="./mlp.svg" alt="MLP" />
+                            </div>
 
-                        <img className="h-32 w-32 -bottom-8 -right-8 absolute rotate-45" src="./brain.svg"/>
+                            <img className="h-32 w-32 -bottom-8 -right-8 absolute rotate-45" src="./brain.svg" alt="Brain" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    )
+    );
 }
 
 export default Hero;
