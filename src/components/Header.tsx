@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProjectCards from "./ProjectCards";
+import {Link} from "react-router-dom";
 
 
 function Header() {
@@ -53,48 +54,67 @@ function Header() {
                                 >
                                     <ul className="divide-y-2 divide-black">
                                         <li>
-                                            <a href="/" className="block px-4 py-3 relative">
-                                                <div className="relative ">
-                                                    {/* Rectangle Behind */}
-                                                    <div
-                                                        className="absolute -top-1 -left-6 right-32 -bottom-1  translate-x-4 bg-purple-300 -rotate-6 z-[-1] rounded-md"></div>
-                                                    {/* Text on Top */}
+                                            <div className="block px-4 py-3 relative">
+                                                <Link to="/">
+                                                    <div className="relative ">
+                                                        {/* Rectangle Behind */}
+                                                        <div
+                                                            className="absolute -top-1 -left-6 right-32 -bottom-1  translate-x-4 bg-purple-300 -rotate-6 z-[-1] rounded-md"></div>
+                                                        {/* Text on Top */}
 
-                                                    <p className="font-bold relative z-10">
-                                                        Home
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                        <p className="font-bold relative z-10">
+                                                            Home
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </div>
                                         </li>
                                         <li>
-                                            <a href="/publication" className="block px-4 py-3 relative">
-                                                <div className="relative ">
-                                                    {/* Rectangle Behind */}
-                                                    <div
-                                                        className="absolute -top-1 -left-6 right-20 -bottom-1  translate-x-4 bg-lime-300 -rotate-6 z-[-1] rounded-md"></div>
-                                                    {/* Text on Top */}
-
-                                                    <p className="font-bold relative z-10">
-                                                        Publications
-                                                    </p>
-                                                </div>
-                                            </a>
+                                            <div className="block px-4 py-3 relative">
+                                                <Link to="/portfolio">
+                                                    <div className="relative ">
+                                                        {/* Rectangle Behind */}
+                                                        <div
+                                                            className="absolute -top-1 -left-6 right-4 -bottom-1  translate-x-4 bg-lime-300 -rotate-3 z-[-1] rounded-md"></div>
+                                                        <p className="font-bold relative z-10">
+                                                            Portfolio
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </div>
                                         </li>
                                         <li>
-                                            <a href="/teaching" className="block px-4 py-3 relative">
-                                                <div className="relative ">
-                                                    {/* Rectangle Behind */}
-                                                    <div
-                                                        className="absolute -top-1 -left-6 right-24 -bottom-1  translate-x-4 bg-teal-200 -rotate-6 z-[-1] rounded-md"></div>
-                                                    {/* Text on Top */}
+                                            <div className="block px-4 py-3 relative">
+                                                <Link to="/portfolio">
+                                                    <div className="relative ">
+                                                        {/* Rectangle Behind */}
+                                                        <div
+                                                            className="absolute -top-1 -left-6 right-20 -bottom-1  translate-x-4 bg-orange-300 -rotate-6 z-[-1] rounded-md"></div>
+                                                        {/* Text on Top */}
 
-                                                    <p className="font-bold relative z-10">
-                                                        Teaching
-                                                    </p>
-                                                </div>
+                                                        <p className="font-bold relative z-10">
+                                                            Publications
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </div>
 
+                                        </li>
+                                        <li>
+                                            <div className="block px-4 py-3 relative">
+                                                <Link to="/portfolio">
+                                                    <div className="relative ">
+                                                        {/* Rectangle Behind */}
+                                                        <div
+                                                            className="absolute -top-1 -left-6 right-24 -bottom-1  translate-x-4 bg-teal-200 -rotate-6 z-[-1] rounded-md"></div>
+                                                        {/* Text on Top */}
 
-                                            </a>
+                                                        <p className="font-bold relative z-10">
+                                                            Teaching
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -104,27 +124,54 @@ function Header() {
                         {/* Desktop: original menu (md+) */}
                         <div
                             className="hidden lg:flex text-xl relative flex-row divide-x-2 divide-black border-4 border-black rounded-lg">
-                            <a href="/">
-                                <div className="relative inline-block my-2 mx-6">
-                                    <div
-                                        className="absolute -top-0 -left-0.5 -right-0.5 -bottom-0 bg-purple-400 -rotate-2 -z-10 rounded-md translate-y-1"/>
-                                    Home
-                                </div>
-                            </a>
-                            <a href="/portfolio">
-                                <div className="relative inline-block my-2 mx-6">
-                                    <div
-                                        className="absolute -top-0 -left-0.5 -right-0.5 -bottom-0 bg-lime-300 -rotate-2 -z-10 rounded-md translate-y-1"/>
-                                    Publications
-                                </div>
-                            </a>
-                            <a href="/teaching">
-                                <div className="relative inline-block my-2 mx-6">
-                                    <div
-                                        className="absolute -top-0 -left-0.5 -right-0.5 -bottom-0 bg-teal-300 -rotate-2 -z-10 rounded-md translate-y-1"/>
-                                    Teaching
-                                </div>
-                            </a>
+                            <div className="block px-4 py-3 relative">
+                                <Link to="/">
+                                    <div className="relative ">
+                                        {/* Rectangle Behind */}
+                                        <div
+                                            className="absolute -top-0.5 -left-6 right-4 -bottom-1  translate-x-4 bg-purple-400 -rotate-3 z-[-1] rounded-md"></div>
+                                        <p className="font-bold relative z-10">
+                                            Home
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div className="block px-4 py-3 relative">
+                                <Link to="/portfolio">
+                                    <div className="relative ">
+                                        {/* Rectangle Behind */}
+                                        <div
+                                            className="absolute -top-1 -left-6 right-4 -bottom-1  translate-x-4 bg-lime-300 -rotate-3 z-[-1] rounded-md"></div>
+                                        <p className="font-bold relative z-10">
+                                            Portfolio
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div className="block px-4 py-3 relative">
+                                <Link to="/portfolio">
+                                    <div className="relative ">
+                                        {/* Rectangle Behind */}
+                                        <div
+                                            className="absolute -top-1 -left-3 right-3 -bottom-0.5  translate-x-3 bg-orange-300 -rotate-2 z-[-1] rounded-md"></div>
+                                        <p className="font-bold relative z-10">
+                                            Publications
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div className="block px-4 py-3 relative">
+                                <Link to="/portfolio">
+                                    <div className="relative ">
+                                        {/* Rectangle Behind */}
+                                        <div
+                                            className="absolute -top-1 left-0 right-1 -bottom-0.5  translate-y-1 bg-teal-300 -rotate-2 z-[-1] rounded-md"></div>
+                                        <p className="font-bold relative z-10">
+                                            Teaching
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </nav>
                 </div>

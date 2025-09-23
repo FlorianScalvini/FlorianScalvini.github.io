@@ -1,20 +1,23 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import PortfolioPage from "./PortfolioPage";
 import TeachingPage from "./TeachingPage";
 
-function App() {
-  return (
+export default function App() {
+    return (
+        <HashRouter>
+            {/* simple nav for testing */}
 
-      <Router>
-          <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
-              <Route path="/teaching" element={<TeachingPage/>} />
-          </Routes>
-      </Router>
-  );
+
+            <Routes>
+                {/* Use an index route for the default page */}
+                <Route index element={<Home />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/teaching" element={<TeachingPage />} />
+                {/* optional: catch-all */}
+                <Route path="*" element={<Home />} />
+            </Routes>
+        </HashRouter>
+    );
 }
-
-export default App;
