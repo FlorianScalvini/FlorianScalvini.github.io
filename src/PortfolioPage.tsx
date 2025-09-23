@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Label from "./components/Label";
 import Portfolio from "./components/Portfolio";
+import Footer from "./components/Footer";
 //import Footer from "./components/Footer";
 
 function PortfolioPage() {
@@ -16,7 +17,7 @@ function PortfolioPage() {
         <Header/>
         <Portfolio/>
         <Skills/>
-
+        <Footer/>
 
       </div>
   );

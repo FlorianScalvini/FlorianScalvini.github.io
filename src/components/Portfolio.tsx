@@ -19,13 +19,21 @@ function Portfolio() {
                 {/* Left - Education Label */}
                 <div className="flex justify-center items-center w-1/3">
                     <div className="relative inline-block">
-                        <div className="absolute -top-1 -left-4 -right-1 -bottom-1 translate-y-1 translate-x-2 bg-lime-300 -rotate-3 z-[-1] rounded-md" />
+                        <div
+                            className="absolute -top-1 -left-4 -right-1 -bottom-1 translate-y-1 translate-x-2 bg-lime-300 -rotate-3 z-[-1] rounded-md"/>
                         <div className="text-6xl font-bold">Education</div>
+                        <div className={"absolute -top-52 -left-32  scale-75 -rotate-45 -z-10"}>
+                            <img alt={"hat_icon"} src={"./hat_education.png"}/>
+                        </div>
+                        <div className={"absolute -top-20 left-16 scale-125 -rotate-[135deg] -z-10"}>
+                            <img alt={"arrow"} src={"./arrow.png"}/>
+                        </div>
                     </div>
+
                 </div>
 
                 {/* Right - Table */}
-                <div className="relative bg-white rounded-md w-2/3 p-6">
+                <div className="relative bg-white rounded-md w-2/3 p-6 mb-32">
                     {/* Decorative Borders */}
                     <span className="rounded-3xl absolute top-0 left-[-8px] right-[-8px] bg-purple-400" style={{ height: excess }} />
                     <span className="rounded-3xl absolute bottom-0 left-[-8px] right-[-8px] bg-emerald-300" style={{ height: excess }} />
@@ -61,7 +69,7 @@ function Portfolio() {
             </div>
 
             {/* Section 2 (same layout, reversed) */}
-            <div className="flex flex-row w-5/6 mx-auto h-3/4 items-center gap-x-32 mt-40">
+            <div className="flex flex-row w-5/6 mx-auto h-3/4 items-center gap-x-32 mb-32">
                 {/* Right - Table */}
                 <div className="relative bg-white rounded-md w-2/3 p-6">
                     {/* Decorative Borders */}
@@ -107,8 +115,12 @@ function Portfolio() {
                 {/* Left - Education Label */}
                 <div className="flex justify-center items-center w-1/3">
                     <div className="relative inline-block">
-                        <div className="absolute top-10 -left-4 right-20 -bottom-1 -translate-y-4 translate-x-2 bg-purple-300 rotate-3 z-[-1] rounded-md" />
+                        <div
+                            className="absolute top-10 -left-4 right-20 -bottom-1 -translate-y-4 translate-x-2 bg-purple-300 rotate-3 z-[-1] rounded-md"/>
                         <div className="text-6xl font-bold">Work Experience</div>
+                        <div className={"absolute -bottom-12 -right-16  scale-75 -z-10"}>
+                            <img alt={"three_trait"} src={"./trait.png"}/>
+                        </div>
                     </div>
                 </div>
             </div>

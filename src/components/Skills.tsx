@@ -8,7 +8,7 @@ function Skills() {
             <div className={"relative w-5/6 mx-auto mb-40"}>
 
                 <div className="relative">
-                    <div className="relative inline-block mx-20 mb-10">
+                    <div className="relative inline-block mx-20 mb-24">
                         {/* Rectangle Behind */}
                         <div
                             className="absolute -top-1 -left-4 -right-1 -bottom-1  translate-x-4 bg-fuchsia-200 -rotate-6 z-[-1] rounded-md"></div>
