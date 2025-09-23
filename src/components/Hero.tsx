@@ -5,19 +5,19 @@ function Hero() {
     const excess = 10;
 
     return (
-        <div className="w-5/6 mx-auto h-auto md:h-[calc(100vh-8rem)] font-bold">
+        <div className="w-5/6 mx-auto h-auto md:h-[calc(100vh-8rem)] font-bold mb-20">
             {/* Responsive font sizes + layout: stack on mobile, row on md+ */}
             <div className="text-5xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl flex flex-col-reverse md:flex-row md:items-center gap-8">
 
                 {/* LEFT — text block, centered on mobile */}
                 <div className="order-2   max-lg:h-vm md:order-1 w-full h-[calc(100vh-15rem)] flex flex-col justify-center items-center md:items-start max-md:my-12">
-                    <div className="max-md:hidden relative w-80 h-32 self-start">
+                    <div className="max-md:hidden relative w-40 h-40 self-start">
                         <div
-                            className="absolute bg-lime-300 h-40 w-40 shadow-lg z-[-1]"
+                            className="absolute bg-lime-300 h-40 w-40 shadow-lg -z-20"
                             style={{ rotate: "-40deg", backgroundColor: "#F1FF58" }}
                         />
                         <img
-                            className="absolute -top-20 left-12 z-10"
+                            className="absolute -top-20 left-12 -z-10"
                             src="./terminal.svg"
                             alt="Terminal"
                         />

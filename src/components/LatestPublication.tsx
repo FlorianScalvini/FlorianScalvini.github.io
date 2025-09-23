@@ -38,7 +38,7 @@ function LatestPublication() {
                     href={"/publications"}
                     className="m-auto rounded-full p-1.5 bg-gradient-to-r from-emerald-300 via-amber-300  to-fuchsia-300"
                 >
-                    <div className="bg-green-300 rounded-full p-3 text-3xl">
+                    <div className="bg-amber-50 font-bold rounded-full p-3 text-3xl">
 
 
                             More articles

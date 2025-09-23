@@ -34,7 +34,7 @@ function Label({ name }: LabelProps) {
         : labelsConfig["empty"];
     return (
         <div
-            className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${label.color} bg-pu`}
+            className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${label.color}`}
         >
             {label.text}
         </div>

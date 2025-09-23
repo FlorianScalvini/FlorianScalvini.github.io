@@ -3,7 +3,7 @@ import SkillsCards from "./SkillsCards";
 
 function Skills() {
     return (
-        <div className={"relative"}>
+        <div className={"relative mb-36"}>
             <img className={"absolute -top-72 -right-52 scale-[0.3] z-[-1] rotate-45"} src={"./gears.png"}/>
             <div className={"relative w-5/6 mx-auto mb-40"}>
 
