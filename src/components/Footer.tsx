@@ -9,7 +9,7 @@ function Footer() {
             <div className={"relative flex justify-between w-5/6 mx-auto mb-4"}>
                 <div className={"flex flex-row gap-6"}>
                     <a
-                        href="https://github.com/FlorianScalvini"
+                        href="https://fr.linkedin.com/in/florian-scalvini-b79852173"
                         className="flex items-center justify-center font-semibold text-lg "
                     >
                         <img className="w-6 h-6" src="./linkedin.svg" alt="Github"/>
