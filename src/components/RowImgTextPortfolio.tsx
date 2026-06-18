@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface RowImgProps {
     title: string;
     img: string;
@@ -8,19 +6,14 @@ interface RowImgProps {
     color: string;
 }
 
-function RowImgTextPortfolio({ title, img, date, place, color }: RowImgProps) {
+function RowImgTextPortfolio({ title, date, place, color }: RowImgProps) {
     return (
-        <div className="flex flex-row items-center justify-start w-full space-x-6">
-            {/* Image Box (1/5 width) */}
-            <div className={`-rotate-6 w-1/5 h-36 ${color} border-4 rounded-xl`}>
-                {/* Optionally, you can add an image here */}
-            </div>
-
-            {/* Text Box (4/5 width) */}
-            <div className="flex flex-col w-4/5">
-                <div className="text-3xl font-extrabold">{title}</div>
-                <div className="text-xl font-semibold">{place}</div>
-                <div className="text-xl font-semibold italic">{date}</div>
+        <div className="flex items-start gap-4">
+            <div className={`mt-1.5 h-3 w-3 shrink-0 rounded-full ${color}`} />
+            <div className="flex flex-col gap-0.5">
+                <p className="text-white font-semibold text-base leading-snug">{title}</p>
+                <p className="text-neutral-400 text-sm">{place}</p>
+                <p className="text-neutral-500 text-xs">{date}</p>
             </div>
         </div>
     );

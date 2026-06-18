@@ -1,13 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import ProjectCards from "./ProjectCards";
-import {Link} from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
+const navLinks = [
+    { label: "Home",         to: "/" },
+    { label: "Portfolio",    to: "/portfolio" },
+    { label: "Publications", to: "/publications" },
+    { label: "Teaching",     to: "/teaching" },
+];
 
 function Header() {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen]       = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const panelRef = useRef<HTMLDivElement | null>(null);
+    const location = useLocation();
 
-    // close on outside click / Esc
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
     useEffect(() => {
         const onDocClick = (e: MouseEvent) => {
             if (panelRef.current && !panelRef.current.contains(e.target as Node)) setOpen(false);
@@ -20,169 +32,119 @@ function Header() {
             document.removeEventListener("keydown", onEsc);
         };
     }, []);
+
+    const isActive = (to: string) =>
+        to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
+
     return (
-        <div className={""}>
+        <header
+            className={`w-screen sticky top-0 z-50 transition-all duration-300 ${
+                scrolled
+                    ? "bg-neutral-950/85 backdrop-blur-md shadow-lg shadow-black/30"
+                    : "bg-neutral-950"
+            }`}
+        >
+            <div className="w-5/6 mx-auto h-16 flex items-center justify-between">
 
-            <div className={"w-5/6 mx-auto font-semibold h-20 text-lg"}>
-                <div className="flex flex-row justify-between items-center h-full">
-                    <div className="flex flex-row items-center border-4 border-black rounded-lg"
-                         aria-label="Florian Scalvini">
-                        <img className="p-2" src="./header_svg_name.svg" alt="" aria-hidden="true"/>
-                        <p className="hidden md:block text-xl text-center py-2 pr-20">Florian Scalvini</p>
-                    </div>
-                    <nav className="relative">
-                        {/* Mobile: hamburger (< md) */}
-                        <div className="lg:hidden relative inline-block">
-                            <button
-                                aria-label="Toggle menu"
-                                aria-expanded={open}
-                                onClick={() => setOpen((v) => !v)}
-                                className="border-4 border-black rounded-lg p-2 flex flex-col justify-center items-center gap-1"
+                {/* Logo */}
+                <Link to="/" aria-label="Florian Scalvini" className="shrink-0">
+                    <img className="h-6" src="/header_svg_name.svg" alt="Florian Scalvini" />
+                </Link>
+
+                {/* Desktop nav */}
+                <nav className="hidden lg:flex items-center gap-0.5">
+                    {navLinks.map(({ label, to }) => {
+                        const active = isActive(to);
+                        return (
+                            <Link
+                                key={label}
+                                to={to}
+                                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                                    active
+                                        ? "text-white"
+                                        : "text-neutral-400 hover:text-white hover:bg-neutral-800/60"
+                                }`}
                             >
-                                <span
-                                    className={`h-0.5 w-6 bg-black transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`}/>
-                                <span
-                                    className={`h-0.5 w-6 bg-black transition-opacity ${open ? "opacity-0" : "opacity-100"}`}/>
-                                <span
-                                    className={`h-0.5 w-6 bg-black transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`}/>
-                            </button>
+                                {label}
+                                {active && (
+                                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-orange-400" />
+                                )}
+                            </Link>
+                        );
+                    })}
+                </nav>
 
-                            {open && (
-                                <div
-                                    ref={panelRef}
-                                    className="absolute right-0 mt-2 w-56 text-xl border-4 border-black rounded-lg bg-white z-50 overflow-hidden"
-                                >
-                                    <ul className="divide-y-2 divide-black">
-                                        <li>
-                                            <div className="block px-4 py-3 relative">
-                                                <Link to="/">
-                                                    <div className="relative ">
-                                                        {/* Rectangle Behind */}
-                                                        <div
-                                                            className="absolute -top-1 -left-6 right-32 -bottom-1  translate-x-4 bg-purple-300 -rotate-6 z-[-1] rounded-md"></div>
-                                                        {/* Text on Top */}
+                {/* Right side */}
+                <div className="flex items-center gap-3">
+                    {/* CV pill — desktop only */}
+                    <a
+                        href="./cv_powerpoint.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden lg:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold transition-colors"
+                    >
+                        CV <span className="opacity-75">↓</span>
+                    </a>
 
-                                                        <p className="font-bold relative z-10">
-                                                            Home
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="block px-4 py-3 relative">
-                                                <Link to="/portfolio">
-                                                    <div className="relative ">
-                                                        {/* Rectangle Behind */}
-                                                        <div
-                                                            className="absolute -top-1 -left-6 right-4 -bottom-1  translate-x-4 bg-lime-300 -rotate-3 z-[-1] rounded-md"></div>
-                                                        <p className="font-bold relative z-10">
-                                                            Portfolio
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="block px-4 py-3 relative">
-                                                <Link to="/portfolio">
-                                                    <div className="relative ">
-                                                        {/* Rectangle Behind */}
-                                                        <div
-                                                            className="absolute -top-1 -left-6 right-20 -bottom-1  translate-x-4 bg-orange-300 -rotate-6 z-[-1] rounded-md"></div>
-                                                        {/* Text on Top */}
+                    {/* Mobile hamburger */}
+                    <div className="lg:hidden relative" ref={panelRef}>
+                        <button
+                            aria-label="Toggle menu"
+                            aria-expanded={open}
+                            onClick={() => setOpen(v => !v)}
+                            className="flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-neutral-800 transition-colors"
+                        >
+                            <span className={`h-0.5 w-5 bg-white transition-all duration-200 ${open ? "translate-y-2 rotate-45" : ""}`} />
+                            <span className={`h-0.5 w-5 bg-white transition-all duration-200 ${open ? "opacity-0 scale-x-0" : ""}`} />
+                            <span className={`h-0.5 w-5 bg-white transition-all duration-200 ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+                        </button>
 
-                                                        <p className="font-bold relative z-10">
-                                                            Publications
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div className="block px-4 py-3 relative">
-                                                <Link to="/portfolio">
-                                                    <div className="relative ">
-                                                        {/* Rectangle Behind */}
-                                                        <div
-                                                            className="absolute -top-1 -left-6 right-24 -bottom-1  translate-x-4 bg-teal-200 -rotate-6 z-[-1] rounded-md"></div>
-                                                        {/* Text on Top */}
-
-                                                        <p className="font-bold relative z-10">
-                                                            Teaching
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        {open && (
+                            <div className="absolute right-0 mt-2 w-52 bg-neutral-900/95 backdrop-blur-sm border border-neutral-700/80 rounded-2xl shadow-2xl overflow-hidden z-50">
+                                <div className="p-2 flex flex-col gap-0.5">
+                                    {navLinks.map(({ label, to }) => {
+                                        const active = isActive(to);
+                                        return (
+                                            <Link
+                                                key={label}
+                                                to={to}
+                                                onClick={() => setOpen(false)}
+                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                                                    active
+                                                        ? "bg-neutral-800 text-white font-medium"
+                                                        : "text-neutral-400 hover:text-white hover:bg-neutral-800/50"
+                                                }`}
+                                            >
+                                                {active && (
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
+                                                )}
+                                                {!active && <span className="w-1.5 h-1.5 shrink-0" />}
+                                                {label}
+                                            </Link>
+                                        );
+                                    })}
                                 </div>
-                            )}
-                        </div>
-
-                        {/* Desktop: original menu (md+) */}
-                        <div
-                            className="hidden lg:flex text-xl relative flex-row divide-x-2 divide-black border-4 border-black rounded-lg">
-                            <div className="block px-4 py-3 relative">
-                                <Link to="/">
-                                    <div className="relative ">
-                                        {/* Rectangle Behind */}
-                                        <div
-                                            className="absolute -top-0.5 -left-6 right-4 -bottom-1  translate-x-4 bg-purple-400 -rotate-3 z-[-1] rounded-md"></div>
-                                        <p className="font-bold relative z-10">
-                                            Home
-                                        </p>
-                                    </div>
-                                </Link>
+                                <div className="border-t border-neutral-800 p-3">
+                                    <a
+                                        href="./cv_powerpoint.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-white text-sm font-semibold transition-colors"
+                                    >
+                                        Download CV ↓
+                                    </a>
+                                </div>
                             </div>
-                            <div className="block px-4 py-3 relative">
-                                <Link to="/portfolio">
-                                    <div className="relative ">
-                                        {/* Rectangle Behind */}
-                                        <div
-                                            className="absolute -top-1 -left-6 right-4 -bottom-1  translate-x-4 bg-lime-300 -rotate-3 z-[-1] rounded-md"></div>
-                                        <p className="font-bold relative z-10">
-                                            Portfolio
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="block px-4 py-3 relative">
-                                <Link to="/portfolio">
-                                    <div className="relative ">
-                                        {/* Rectangle Behind */}
-                                        <div
-                                            className="absolute -top-1 -left-3 right-3 -bottom-0.5  translate-x-3 bg-orange-300 -rotate-2 z-[-1] rounded-md"></div>
-                                        <p className="font-bold relative z-10">
-                                            Publications
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="block px-4 py-3 relative">
-                                <Link to="/portfolio">
-                                    <div className="relative ">
-                                        {/* Rectangle Behind */}
-                                        <div
-                                            className="absolute -top-1 left-0 right-1 -bottom-0.5  translate-y-1 bg-teal-300 -rotate-2 z-[-1] rounded-md"></div>
-                                        <p className="font-bold relative z-10">
-                                            Teaching
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
-                    </nav>
+                        )}
+                    </div>
                 </div>
+
             </div>
 
-
-            <hr className=" w-screen border-black border-2 mx-auto mb-10 z-10"/>
-            <img className={"absolute h-20 top-14 -left-10 scale-[1.7]  z-6"} src={"./shape_1.svg"}/>
-            <img className={"absolute h-20 -top-12 -right-0 rotate-12 scale-[1.3] z-[-1] "} src={"./shape_1.svg"}/>
-        </div>
-    )
+            {/* Gradient separator */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
+        </header>
+    );
 }
 
 export default Header;

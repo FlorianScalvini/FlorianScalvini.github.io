@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 function PortfolioPage() {
   return (
 
-      <div className={"overflow-auto fixed inset-0 -z-10"} style={{backgroundColor:"#FEFFF0"}}>
+      <div className="min-h-screen bg-neutral-950">
         <Header/>
         <Portfolio/>
         <Skills/>

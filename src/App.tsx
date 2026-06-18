@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import PortfolioPage from "./PortfolioPage";
 import TeachingPage from "./TeachingPage";
+import PublicationsPage from './PublicationsPage';
 
 export default function App() {
     return (
@@ -14,6 +15,7 @@ export default function App() {
                 {/* Use an index route for the default page */}
                 <Route index element={<Home />} />
                 <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/publications" element={<PublicationsPage />} />
                 <Route path="/teaching" element={<TeachingPage />} />
                 {/* optional: catch-all */}
                 <Route path="*" element={<Home />} />

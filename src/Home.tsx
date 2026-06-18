@@ -9,16 +9,18 @@ import Label from "./components/Label";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume";
+import LatestContent from "./components/latest_content";
 
 function Home() {
   return (
 
-      <div className={"overflow-auto fixed inset-0 -z-10"} style={{backgroundColor:"#FEFFF0"}}>
+      <div className="min-h-screen bg-neutral-950">
           <Header/>
           <Hero/>
           <Resume/>
           <Project/>
           <LatestPublication/>
+          <LatestContent/>
           <Footer/>
       </div>
   );

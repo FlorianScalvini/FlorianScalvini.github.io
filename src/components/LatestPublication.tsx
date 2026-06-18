@@ -1,54 +1,59 @@
-import React from 'react'
-import ProjectCards from "./ProjectCards";
 import PublicationsCards from "./PublicationCards";
 
+const publications = [
+    {
+        title: "Outdoor Navigation Assistive System Based on Robust and real-time visual-auditory substitution approach",
+        abstract: "We present a real-time assistive navigation system converting visual scene information into auditory feedback, enabling visually impaired users to navigate outdoor environments autonomously.",
+        journal: "Sensors", img: "/sensors.png", type: "journal",
+        link: "https://www.mdpi.com/1424-8220/24/1/166",
+        github: "https://github.com/FlorianScalvini/Thesis-3DSG-Project",
+    },
+    {
+        title: "Low-Latency human computer auditory interface based on real time vision analysis",
+        abstract: "A low-latency pipeline for translating visual input into structured audio signals, designed for real-time human-computer interaction with minimal perceptual delay.",
+        journal: "ICASSP", img: "/icassp.png",
+        link: "https://ieeexplore.ieee.org/abstract/document/9747094/?casa_token=c5m_a-tInK4AAAAA:yXfGJNaRLa4qBtIfGI3rYSxQf_CZOyocdaqTKqf4mv1LVzotnLMOENOkhWCV7UEgV-jCrNiN9w",
+        github: "https://github.com/FlorianScalvini/Thesis-3DSG-Project",
+    },
+    {
+        title: "uB-VisioGeoloc: An image sequences dataset of pedestrian navigation",
+        abstract: "A publicly available annotated dataset of image sequences captured during pedestrian navigation, designed to benchmark visual localisation and geolocation algorithms in urban settings.",
+        journal: "Data in Brief", img: "/datainbrief.jpg", type: "journal",
+        link: "https://www.sciencedirect.com/science/article/pii/S2352340924000611",
+    },
+];
 
 function LatestPublication() {
     return (
-        <div className="w-5/6 mx-auto mb-64">
-            <div className="text-5xl text-center font-bold mx-auto w-full">
-                <div className="relative inline-block mx-20 mb-20">
-                    {/* Rectangle Behind */}
-                    <div
-                        className="absolute -top-1 -left-4 -right-1 -bottom-1 translate-y-1 translate-x-2 bg-emerald-200 -rotate-2 z-[-1] rounded-md"></div>
-                    <p className={""}>Latest Publications</p>
+        <section className="bg-white py-28">
+            <div className="w-5/6 mx-auto flex flex-col gap-14">
+
+                {/* Header */}
+                <div>
+                    <p className="text-neutral-500 text-sm font-medium tracking-widest uppercase mb-4">Research</p>
+                    <h2 className="text-4xl sm:text-5xl font-bold text-orange-500">Latest Publications</h2>
                 </div>
+
+                {/* Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {publications.map((pub) => (
+                        <PublicationsCards key={pub.title} {...pub} />
+                    ))}
+                </div>
+
+                {/* More button */}
+                <div className="flex justify-center pt-4">
+                    <a
+                        href="/publications"
+                        className="px-8 py-3 rounded-full border border-neutral-300 text-neutral-700 text-sm font-medium hover:border-neutral-900 hover:text-neutral-900 transition-colors"
+                    >
+                        View all publications →
+                    </a>
+                </div>
+
             </div>
-
-            {/* Grid with max 4 items per row, centered */}
-            <div
-                className="w-11/12 mx-auto grid gap-8  grid-cols-[repeat(auto-fit,minmax(450px,1fr))] mb-10">
-
-                <PublicationsCards title="Outdoor Navigation Assistive System Based on Robust and real-time visual-auditory substitution approach" journal="Sensors" img="../sensors.png" type="journal" link="https://www.mdpi.com/1424-8220/24/1/166"
-                                   github={"https://github.com/FlorianScalvini/Thesis-3DSG-Project"} />
-                <PublicationsCards title="Low-Latency human computer auditory interface based on real rime vision analysis" journal="ICASSP"
-                                   img="../icassp.png" link="https://ieeexplore.ieee.org/abstract/document/9747094/?casa_token=c5m_a-tInK4AAAAA:yXfGJNaRLa4qBtIfGI3rYSxQf_CZOyocdaqTKqf4mv1LVzotnLMOENOkhWCV7UEgV-jCrNiN9w"  github={"https://github.com/FlorianScalvini/Thesis-3DSG-Project"}  />
-                <PublicationsCards title="uB-VisioGeoloc: An image sequences dataset of pedestrian navigation" journal="DataInBrief"
-                                   img="./datainbrief.jpg" link="https://www.sciencedirect.com/science/article/pii/S2352340924000611" type="journal" />
-                <PublicationsCards title="Distance perception of objects using visual to auditory sensory substitution: comparison of conversion methods based on sound intensity and envelope modulations" journal="APCAM"
-                                   img="./camille_journal.png" />
-                <PublicationsCards title="Cross-modal correspondence enhances elevation localization in visual to auditory sensory substitution" journal="Frontiers in Psychology"
-                                   img="./camille_poster.png" link="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1079998/full" type="journal"/>
-                <PublicationsCards title="Visual-auditory substitution device for indoor navigation based on fast visual marker detection" journal="SITIS"
-                                   img="./sitis.png" link="https://ieeexplore.ieee.org/abstract/document/10090127"  github={"https://github.com/FlorianScalvini/Thesis-3DSG-Project"} />
-            </div>
-            {/* Central button more articles*/}
-            <div className={"w-full flex m-auto items-center text-center"}>
-                <a
-                    href={"/publications"}
-                    className="m-auto rounded-full p-1.5 bg-gradient-to-r from-emerald-300 via-amber-300  to-fuchsia-300"
-                >
-                    <div className="bg-amber-50 font-bold rounded-full p-3 text-3xl">
-
-
-                            More articles
-
-                    </div>
-                </a>
-            </div>
-        </div>
-
-    )
+        </section>
+    );
 }
 
 export default LatestPublication;

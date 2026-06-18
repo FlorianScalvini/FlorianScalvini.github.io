@@ -1,32 +1,65 @@
-import React from 'react';
+const stats = [
+    { value: "", label: "" },
+    { value: "", label: "" },
+    { value: "", label: "" },
+    { value: "", label: "" },
+];
 
 function Resume() {
     return (
-        <div className="w-5/6 mx-auto font-bold mb-32">
-            <div className="text-5xl text-center font-bold mx-auto w-full">
-                <div className="relative inline-block mx-20 mb-32">
-                    {/* Rectangle Behind */}
-                    <div className="absolute -top-1 -left-4 -right-1 -bottom-1 translate-y-1 translate-x-2 bg-cyan-200 -rotate-3 z-[-1] rounded-md"></div>
-                    <p>Resume</p>
-                </div>
+        <section className="bg-white py-28">
+            <div className="w-5/6 mx-auto flex flex-col lg:flex-row gap-20 items-start">
 
-                {/* Container with max width = 5/6 of window */}
-                <div className="flex justify-center items-center">
-                    <div className="flex flex-col xl:flex-row gap-8 justify-center items-center">
-                        <div className="bg-lime-400 -rotate-12 flex justify-center items-center w-96 h-80">
-                            <div className="bg-lime-100 border-lime-300 w-full h-full border-8 rotate-2 m-1"></div>
-                        </div>
-                        <div className="bg-purple-400 rotate-6 flex justify-center items-center w-80 h-96">
-                            <div className="bg-purple-100 border-purple-300 w-full h-full border-8 rotate-2 m-1"></div>
-                        </div>
-                        <div className="bg-orange-400 rotate-2 flex justify-center items-center w-80 h-80">
-                            <div className="bg-orange-100 border-orange-300 w-full h-full border-4 rotate-2 m-1"></div>
-                        </div>
+                {/* Left — bio */}
+                <div className="flex flex-col gap-8 lg:w-1/2">
+                    <div>
+                        <p className="text-neutral-500 text-sm font-medium tracking-widest uppercase mb-4">About</p>
+                        <h2 className="text-4xl sm:text-5xl font-bold text-orange-500">Who I am</h2>
+                    </div>
+                    <p className="text-neutral-600 text-base leading-loose">
+                        I am a postdoctoral researcher specialising in computer vision and image processing,
+                        currently working at IMT Atlantique. My work focuses on developing robust, real-time
+                        perception systems — from sensory substitution devices for visually impaired users
+                        to deep learning pipelines for medical image analysis.
+                    </p>
+                    <p className="text-neutral-600 text-base leading-loose">
+                        I hold a PhD in Computer Sciences from the University of Bourgogne (2020–2024)
+                        and an engineering degree from Polytech Dijon. Alongside research, I have
+                        three years of teaching experience at university level.
+                    </p>
+                    <div className="flex gap-4 pt-2">
+                        <a
+                            href="./cv_powerpoint.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
+                        >
+                            Download CV
+                        </a>
+                        <a
+                            href="/portfolio"
+                            className="px-6 py-3 rounded-full border border-neutral-300 text-neutral-700 text-sm font-medium hover:border-neutral-900 hover:text-neutral-900 transition-colors"
+                        >
+                            View portfolio
+                        </a>
                     </div>
                 </div>
 
+                {/* Right — stats */}
+                <div className="grid grid-cols-2 gap-5 lg:w-1/2 w-full">
+                    {stats.map(({ value, label }) => (
+                        <div
+                            key={label}
+                            className="flex flex-col gap-2 p-10 rounded-2xl bg-neutral-900 border border-neutral-700"
+                        >
+                            <span className="text-4xl font-bold text-white">{value}</span>
+                            <span className="text-neutral-300 text-sm">{label}</span>
+                        </div>
+                    ))}
+                </div>
+
             </div>
-        </div>
+        </section>
     );
 }
 
